@@ -49,7 +49,7 @@ function main() {
 
 
 ###
-$url_build_hello_exe_sh = "https://raw.githubusercontent.com/cat2151/wsl2-docker-mingw-hello/main/build_hello_exe.sh"
+$url_build_hello_exe_sh = "https://raw.githubusercontent.com/cat2151/wsl2-docker-mingw-hello/main/build.sh"
 $scriptDir = getScriptDir
 $helloDir = "${scriptDir}\WSL2_docker_mingw_hello" # batのあるディレクトリをできるだけ汚さない用
 $startTime = startLog "${helloDir}\WSL2_docker_mingw_hello.log"

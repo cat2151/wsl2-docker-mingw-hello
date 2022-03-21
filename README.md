@@ -34,12 +34,13 @@ curl.exe -L https://raw.githubusercontent.com/cat2151/wsl2-docker-mingw-hello/ma
   - ログや、hello world exe実行結果から、WSL2 + Ubuntuでexeがビルドできたことを確認します。
 - 適宜、batとbuild.shを書き換えて、任意のexeをビルドして使うこともできます。また、それを繰り返して使う場合は、書き換えたbatとshをgit等で管理して自動化すると楽かもしれません。
 
-# なぜ名前の構造がmsys2-auto-installと違うの？例えばwsl2-auto-installやdocker-auto-installではないの？なぜwsl2-docker-mingw-helloなの？
-- MSYS2/Cygwinと違い、WSL2/Dockerは一つのOSに一つしかinstallできないためです（そしてこれを使う方は既にinstall済みです）。
+# なぜ名前の構造がmsys2-auto-installと違うの？
+- （同じ構造だとwsl2-auto-installやdocker-auto-installになりそうですが、そうではなくwsl2-docker-mingw-helloという名前にしました。）
+- MSYS2/Cygwinと違い、WSL2/Dockerは一つのOSに一つしかinstallできないためです。（そしてこれを使う方は既にinstall済みです）
   - MSYS2/Cygwinのときは、auto-installで生成したMSYS2/Cygwinディレクトリ配下を「使い捨ての一つの環境」にできました。
   - かわりに今回「使い捨ての一つの環境」にするのは、「Docker Hubからpullしたimage "docker-mingw-w64" をDockerでLinuxコンテナとして起動した、名無しの環境」です。
   - 今回の「使い捨ての一つの環境」はinstallされません。
-    - hello world exeをビルドしたら、それをDockerにmountしたWindowsディレクトリ上に出力したのち、Linuxコンテナは消滅します（使い捨てされます）ので、ホストOSの環境を汚しません。
+    - hello world exeをビルドしたら、それを「DockerにmountしたWindowsディレクトリ上」に出力したのち、Linuxコンテナは消滅します（使い捨てされます）ので、ホストOSの環境を汚しません。
 - Docker Hubのimageをrunする方式か、そうでないか、を区別がつくようにするためです。
 - mingwでクロスコンパイルするか、そうでないか、を区別がつくようにするためです。
 - hello worldをビルドするか、そうでないか、を区別がつくようにするためです。
